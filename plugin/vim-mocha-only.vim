@@ -24,7 +24,7 @@ function! s:clearonlyfrombuffer()
 
   while lineNumber <  lastLineNumber
     let line = getline(lineNumber)
-    let newline = substitute(line, g:only_string, '', '')
+    let newline = substitute(line, '\(describe\|it\)\.only', '\1', '')
 
     if (line != newline)
       call setline(lineNumber, newline)
